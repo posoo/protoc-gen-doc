@@ -1,6 +1,7 @@
 <a name="top"/>
 
 {{#files}}
+
 <a name="{{file_name}}"/>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -9,12 +10,16 @@
 {{#file_description}}{{& file_description}}{{/file_description}}
 
 {{#file_messages}}
+
 <a name="{{message_full_name}}"/>
+
 ### {{message_long_name}}
 {{& message_description}}
 
+{{#message_has_fields}}
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+{{/message_has_fields}}
 {{#message_fields}}
 | {{field_name}} | [{{field_long_type}}](#{{field_full_type}}) | {{field_label}} | {{#nobr}}{{& field_description}}{{#field_default_value}} Default: {{field_default_value}}{{/field_default_value}}{{/nobr}} |
 {{/message_fields}}
@@ -30,7 +35,9 @@
 {{/file_messages}}
 
 {{#file_enums}}
+
 <a name="{{enum_full_name}}"/>
+
 ### {{enum_long_name}}
 {{& enum_description}}
 
@@ -43,7 +50,9 @@
 {{/file_enums}}
 
 {{#file_has_extensions}}
+
 <a name="{{file_name}}-extensions"/>
+
 ### File-level Extensions
 | Extension | Type | Base | Number | Description |
 | --------- | ---- | ---- | ------ | ----------- |
@@ -53,7 +62,9 @@
 {{/file_has_extensions}}
 
 {{#file_services}}
+
 <a name="{{service_full_name}}"/>
+
 ### {{service_name}}
 {{& service_description}}
 
@@ -68,10 +79,11 @@
 {{/files}}
 
 <a name="scalar-value-types"/>
+
 ## Scalar Value Types
 
 | .proto Type | Notes | C++ Type | Java Type | Python Type |
 | ----------- | ----- | -------- | --------- | ----------- |
 {{#scalar_value_types}}
-| <a name="{{scalar_value_proto_type}}"/> {{scalar_value_proto_type}} | {{scalar_value_notes}} | {{scalar_value_cpp_type}} | {{scalar_value_java_type}} | {{scalar_value_python_type}} |
+| {{scalar_value_proto_type}} | {{scalar_value_notes}} | {{scalar_value_cpp_type}} | {{scalar_value_java_type}} | {{scalar_value_python_type}} |
 {{/scalar_value_types}}
