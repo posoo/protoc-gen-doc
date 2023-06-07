@@ -514,6 +514,7 @@ static void addMessages(const gp::Descriptor *descriptor,
         addField(descriptor->field(i), &fields);
     }
     message["message_fields"] = fields;
+    message["message_has_fields"] = !fields.isEmpty();
 
     // Add nested extensions.
     QVariantList extensions;
